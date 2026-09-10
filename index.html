@@ -1,357 +1,1048 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio - Winnie Gonçalves</title>
-    <!-- Adicionando o favicon -->
-    <link rel="icon" href="favicon.png" sizes="192x192" type="image/x-icon">
-    <!-- Meta tags para redes sociais (WhatsApp, Facebook, etc) -->
-    <meta property="og:title" content="Portfólio - Winnie Gonçalves">
-    <meta property="og:description" content="Confira meu portfólio online, onde compartilho minha jornada e projetos de TI.">
-    <meta property="og:image" content="favicon.png">
-    <meta property="og:url" content="https:www.winniegoncalves.com.br">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Portfólio - Winnie Gonçalves">
-    <meta name="twitter:description" content="Confira meu portfólio online, onde compartilho minha jornada e projetos de TI.">
-    <meta name="twitter:image" content="favicon.png">
-    <style>
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-            scroll-behavior: smooth;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Winnie Gonçalves | Infraestrutura & Cloud</title>
+<meta name="description" content="Portfólio de Winnie Gonçalves — Infraestrutura, Cloud, Microsoft 365, Azure e Automação.">
 
-        body {
-            background: radial-gradient(circle at center, #0f2027, #203a43, #2c5364);
-            color: white;
-            position: relative;
-            overflow-x: hidden;
-            padding-bottom: 50px;
-            line-height: 1.6;
-        }
+<style>
+:root{
+  --bg:#070707;
+  --bg-soft:#0c0a09;
+  --panel:#100d0b;
+  --panel-2:#15100d;
+  --text:#f4efe9;
+  --muted:#aaa09a;
+  --brown:#A0522D;
+  --brown-2:#C4774C;
+  --brown-3:#6F351F;
+  --line:rgba(160,82,45,.28);
+  --line-soft:rgba(255,255,255,.06);
+  --glow:rgba(160,82,45,.25);
+}
 
-        nav {
-            background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(160,82,45,.13), transparent 28%),
+    radial-gradient(circle at 92% 34%, rgba(160,82,45,.07), transparent 22%),
+    linear-gradient(#090807,#070707);
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  overflow-x:hidden;
+}
 
-        nav ul {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            list-style: none;
-            flex-wrap: wrap;
-        }
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.28;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(to bottom,black 0%,black 65%,transparent 100%);
+  z-index:-2;
+}
 
-        nav a {
-            color: #42CCFA;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-            padding: 0.5rem 1rem;
-        }
+body::after{
+  content:"";
+  position:fixed;
+  width:520px;
+  height:520px;
+  border:1px solid rgba(160,82,45,.1);
+  border-radius:50%;
+  right:-260px;
+  top:120px;
+  box-shadow:
+    0 0 0 80px rgba(160,82,45,.025),
+    0 0 0 160px rgba(160,82,45,.018);
+  z-index:-1;
+  pointer-events:none;
+}
 
-        nav a:hover {
-            color: #6EE7FF;
-        }
+a{color:inherit;text-decoration:none}
+.container{width:min(1180px,calc(100% - 40px));margin:auto}
 
-        section {
-            min-height: 100vh;
-            padding: 100px 20px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter:blur(18px);
+  background:rgba(7,7,7,.75);
+  border-bottom:1px solid var(--line-soft);
+}
 
-        .container {
-            max-width: 1000px;
-            width: 95%;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
-            padding: 2.5rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            backdrop-filter: blur(10px);
-            margin: 1rem 0;
-        }
+.nav{
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
 
-        .container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(66, 204, 250, 0.7);
-        }
+.logo{
+  font-family:"Cascadia Code","Courier New",monospace;
+  font-weight:800;
+  letter-spacing:.12em;
+  color:var(--brown-2);
+}
 
-        h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #42CCFA;
-            text-shadow: 0 0 10px rgba(66, 204, 250, 0.3);
-            font-size: 2.5rem;
-        }
+.menu{
+  display:flex;
+  gap:24px;
+  font-size:13px;
+  color:var(--muted);
+}
+.menu a{position:relative}
+.menu a::after{
+  content:"";
+  position:absolute;
+  left:0;right:100%;bottom:-7px;
+  height:1px;
+  background:var(--brown-2);
+  transition:.25s ease;
+}
+.menu a:hover{color:white}
+.menu a:hover::after{right:0}
 
-        .hero {
-            text-align: center;
-        }
+.hero{
+  min-height:calc(100vh - 73px);
+  display:grid;
+  grid-template-columns:1.12fr .88fr;
+  gap:72px;
+  align-items:center;
+  padding:80px 0 72px;
+}
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
+.terminal-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:9px 13px;
+  border:1px solid var(--line);
+  background:rgba(160,82,45,.06);
+  color:#d6a283;
+  font-family:"Cascadia Code","Courier New",monospace;
+  font-size:12px;
+  letter-spacing:.08em;
+  margin-bottom:26px;
+}
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
+.dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--brown-2);
+  box-shadow:0 0 14px rgba(196,119,76,.75);
+}
 
-        .profile-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin: 2rem auto;
-            display: block;
-            border: 4px solid #42CCFA;
-            box-shadow: 0 0 20px rgba(66, 204, 250, 0.5);
-        }
+.hero h1{
+  margin:0;
+  font-size:clamp(58px,8vw,112px);
+  line-height:.86;
+  letter-spacing:-.05em;
+  max-width:850px;
+}
+.hero h1 span{
+  display:block;
+  color:var(--brown-2);
+  text-shadow:0 0 28px rgba(160,82,45,.12);
+}
 
-        .project {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+.role{
+  margin-top:28px;
+  font-size:clamp(21px,2.4vw,32px);
+  font-weight:700;
+}
 
-        .project h3 {
-            color: #42CCFA;
-            margin-bottom: 1rem;
-        }
+.intro{
+  max-width:720px;
+  margin-top:18px;
+  color:var(--muted);
+  line-height:1.75;
+  font-size:17px;
+}
 
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:30px;
+}
+.btn{
+  padding:13px 18px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  font-size:13px;
+  font-weight:700;
+  transition:.22s ease;
+}
+.btn.primary{
+  background:linear-gradient(135deg,var(--brown),var(--brown-3));
+  border-color:var(--brown);
+  color:#fff;
+}
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(160,82,45,.15);
+}
 
-        .contact-info p {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 1.1rem;
-        }
+.photo-shell{
+  position:relative;
+  width:min(100%,460px);
+  margin-inline:auto;
+  border-radius:28px;
+  padding:1px;
+  background:linear-gradient(145deg,rgba(196,119,76,.8),rgba(160,82,45,.12),rgba(255,255,255,.08));
+  box-shadow:0 30px 80px rgba(0,0,0,.35);
+}
 
-        .contact-info .emoji {
-            font-size: 1.4rem;
-            margin-right: 0.5rem;
-        }
+.photo-wrap{
+  position:relative;
+  overflow:hidden;
+  border-radius:27px;
+  min-height:560px;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(160,82,45,.20), transparent 25%),
+    linear-gradient(145deg,#17100d,#0b0908);
+  isolation:isolate;
+}
 
-        .contact-info a {
-            color: #42CCFA;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+.photo-wrap img{
+  width:100%;
+  height:100%;
+  min-height:560px;
+  object-fit:cover;
+  display:block;
+  filter:saturate(.9) contrast(1.03);
+  transition:transform .6s ease, filter .6s ease;
+}
 
-        .contact-info a:hover {
-            color: #6EE7FF;
-            text-decoration: underline;
-        }
+/* Use uma foto sua substituindo o src da imagem */
+.photo-placeholder{
+  min-height:560px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  color:#8e8179;
+  font-family:"Cascadia Code","Courier New",monospace;
+  padding:40px;
+}
+.photo-placeholder strong{display:block;color:#d9b39d;font-size:18px;margin-bottom:8px}
 
-        @media (max-width: 768px) {
-            nav ul {
-                gap: 1rem;
-            }
+/* brilho que segue o mouse */
+.photo-glow{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  background:radial-gradient(
+    circle 170px at var(--mx,50%) var(--my,50%),
+    rgba(196,119,76,.32),
+    rgba(160,82,45,.11) 35%,
+    transparent 72%
+  );
+  opacity:0;
+  transition:opacity .25s ease;
+  mix-blend-mode:screen;
+}
+.photo-wrap:hover .photo-glow{opacity:1}
+.photo-wrap:hover img{transform:scale(1.025);filter:saturate(1.02) contrast(1.05)}
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
+.photo-grid{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+  opacity:.17;
+  background-image:
+    linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:28px 28px;
+  mask-image:linear-gradient(to bottom,black,transparent 75%);
+}
 
-            .container {
-                padding: 1.5rem;
-            }
+.photo-label{
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:18px;
+  z-index:4;
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  padding:14px 16px;
+  border-radius:14px;
+  border:1px solid rgba(196,119,76,.30);
+  background:rgba(8,8,8,.68);
+  backdrop-filter:blur(12px);
+  font-family:"Cascadia Code","Courier New",monospace;
+  font-size:12px;
+}
+.photo-label span:last-child{color:var(--brown-2)}
 
-            h2 {
-                font-size: 2rem;
-            }
-        }
+section{
+  padding:105px 0;
+  border-top:1px solid var(--line-soft);
+}
 
-        @media (max-width: 480px) {
-            nav {
-                padding: 0.5rem;
-            }
+.section-kicker{
+  color:var(--brown-2);
+  font-family:"Cascadia Code","Courier New",monospace;
+  letter-spacing:.1em;
+  font-size:12px;
+  margin-bottom:16px;
+}
 
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 0.5rem;
-            }
+h2{
+  margin:0 0 18px;
+  font-size:clamp(38px,5.5vw,70px);
+  line-height:.95;
+  letter-spacing:-.04em;
+}
 
-            .hero h1 {
-                font-size: 2rem;
-            }
+.section-text{
+  max-width:790px;
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.8;
+}
 
-            .container {
-                padding: 1rem;
-                width: 98%;
-            }
+.about-grid{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:70px;
+  align-items:start;
+}
 
-            .profile-photo {
-                width: 150px;
-                height: 150px;
-            }
-        }
-        
-    </style>
+.about-panel{
+  padding:26px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:
+    linear-gradient(145deg,rgba(160,82,45,.08),rgba(255,255,255,.015));
+}
+.about-panel code{
+  display:block;
+  color:#d9a487;
+  line-height:1.9;
+  font-size:13px;
+  white-space:pre-wrap;
+}
+
+.stack-grid{
+  margin-top:45px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+.tech{
+  min-height:150px;
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:linear-gradient(150deg,rgba(255,255,255,.02),rgba(160,82,45,.035));
+  transition:.25s ease;
+  position:relative;
+  overflow:hidden;
+}
+.tech::before{
+  content:"";
+  position:absolute;
+  inset:auto -30% -65% -30%;
+  height:110px;
+  background:radial-gradient(circle,rgba(160,82,45,.24),transparent 65%);
+  opacity:0;
+  transition:.25s ease;
+}
+.tech:hover{
+  border-color:rgba(196,119,76,.55);
+  transform:translateY(-5px);
+  box-shadow:0 22px 42px rgba(0,0,0,.24);
+}
+.tech:hover::before{opacity:1}
+.tech .n{
+  color:var(--brown-2);
+  font-family:"Cascadia Code","Courier New",monospace;
+  font-size:11px;
+}
+.tech strong{
+  position:absolute;
+  left:22px;right:22px;bottom:22px;
+  font-size:16px;
+}
+
+.projects{
+  margin-top:46px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+.project{
+  position:relative;
+  overflow:hidden;
+  min-height:360px;
+  padding:30px;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:
+    linear-gradient(145deg,rgba(160,82,45,.08),rgba(255,255,255,.012));
+  transition:.3s ease;
+}
+.project::after{
+  content:"";
+  position:absolute;
+  width:230px;height:230px;
+  right:-130px;top:-130px;
+  border-radius:50%;
+  border:1px solid rgba(196,119,76,.16);
+  box-shadow:
+    0 0 0 45px rgba(160,82,45,.025),
+    0 0 0 90px rgba(160,82,45,.015);
+}
+.project:hover{
+  transform:translateY(-6px);
+  border-color:rgba(196,119,76,.58);
+  box-shadow:0 25px 55px rgba(0,0,0,.25), 0 0 25px rgba(160,82,45,.08);
+}
+.project-number{
+  color:var(--brown-2);
+  font-family:"Cascadia Code","Courier New",monospace;
+  font-size:12px;
+  letter-spacing:.1em;
+}
+.project h3{
+  margin:48px 0 16px;
+  font-size:29px;
+  line-height:1.05;
+  max-width:450px;
+}
+.project p{
+  max-width:530px;
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:28px;
+}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(160,82,45,.3);
+  background:rgba(160,82,45,.07);
+  color:#cda18a;
+  font-size:11px;
+}
+
+.star{
+  margin-top:24px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+.star-item{
+  padding:12px;
+  border-radius:12px;
+  background:rgba(0,0,0,.18);
+  border:1px solid rgba(255,255,255,.04);
+}
+.star-item b{
+  display:block;
+  color:var(--brown-2);
+  margin-bottom:6px;
+  font-size:11px;
+}
+.star-item span{
+  color:#b5aaa4;
+  font-size:12px;
+  line-height:1.45;
+}
+
+.certs{
+  margin-top:44px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+.cert{
+  display:grid;
+  grid-template-columns:105px 1fr;
+  gap:20px;
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:rgba(255,255,255,.012);
+  transition:.22s ease;
+}
+.cert:hover{
+  border-color:rgba(196,119,76,.48);
+  transform:translateX(4px);
+}
+.cert-code{
+  color:var(--brown-2);
+  font-family:"Cascadia Code","Courier New",monospace;
+  font-weight:900;
+  font-size:20px;
+}
+.cert strong{display:block;margin-bottom:6px}
+.cert p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+
+.contact-box{
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:linear-gradient(145deg,rgba(160,82,45,.08),rgba(255,255,255,.01));
+  padding:34px;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:42px;
+}
+.terminal{
+  padding:22px;
+  border-radius:17px;
+  background:#060504;
+  border:1px solid rgba(160,82,45,.23);
+  font-family:"Cascadia Code","Courier New",monospace;
+  line-height:1.85;
+  font-size:13px;
+}
+.prompt{color:var(--brown-2)}
+.blink{
+  width:8px;height:15px;background:var(--brown-2);
+  display:inline-block;vertical-align:-2px;
+  animation:blink 1s steps(1) infinite;
+}
+@keyframes blink{50%{opacity:0}}
+
+footer{
+  padding:32px 0 50px;
+  border-top:1px solid var(--line-soft);
+  color:#7f7772;
+  font-size:12px;
+}
+.footer-row{display:flex;justify-content:space-between;gap:20px}
+
+@media(max-width:950px){
+  .hero,.about-grid,.contact-box{grid-template-columns:1fr}
+  .hero{padding-top:55px}
+  .stack-grid{grid-template-columns:repeat(2,1fr)}
+  .projects{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .menu{display:none}
+  .hero h1{font-size:58px}
+  .photo-wrap,.photo-wrap img,.photo-placeholder{min-height:460px}
+  section{padding:80px 0}
+  .stack-grid,.certs,.star{grid-template-columns:1fr}
+  .cert{grid-template-columns:85px 1fr}
+  .footer-row{flex-direction:column}
+}
+
+.contact-links{
+  margin-top:30px;
+  display:grid;
+  gap:12px;
+}
+.contact-link{
+  display:grid;
+  grid-template-columns:100px 1fr auto;
+  gap:14px;
+  align-items:center;
+  padding:17px 18px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(255,255,255,.012);
+  transition:.22s ease;
+  min-width:0;
+}
+.contact-link:hover{
+  transform:translateY(-3px);
+  border-color:rgba(196,119,76,.58);
+  background:rgba(160,82,45,.07);
+  box-shadow:0 14px 35px rgba(0,0,0,.22);
+}
+.contact-label{
+  color:var(--brown-2);
+  font-family:"Cascadia Code","Courier New",monospace;
+  font-size:11px;
+  letter-spacing:.09em;
+}
+.contact-value{
+  color:#e8dfd9;
+  overflow-wrap:anywhere;
+}
+.contact-arrow{
+  color:var(--brown-2);
+  font-size:18px;
+}
+
+@media(max-width:700px){
+  body::after{display:none}
+  .container{width:min(100% - 24px,1180px)}
+  .hero{
+    gap:42px;
+    padding:48px 0 58px;
+  }
+  .hero h1{
+    font-size:clamp(46px,15vw,64px);
+    line-height:.9;
+  }
+  .role{
+    font-size:20px;
+    line-height:1.25;
+  }
+  .intro,.section-text,.about-copy{
+    font-size:16px;
+    line-height:1.68;
+  }
+  .actions{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+  .btn{
+    width:100%;
+    text-align:center;
+  }
+  .photo-shell{
+    width:100%;
+    max-width:390px;
+  }
+  .photo-wrap,.photo-wrap img,.photo-placeholder{
+    min-height:430px;
+  }
+  .photo-label{
+    left:12px;
+    right:12px;
+    bottom:12px;
+    font-size:10px;
+    padding:12px;
+  }
+  h2{
+    font-size:clamp(34px,11vw,48px);
+    line-height:1;
+  }
+  .project{
+    min-height:auto;
+    padding:22px;
+  }
+  .project h3{
+    margin-top:34px;
+    font-size:24px;
+  }
+  .star{
+    gap:10px;
+  }
+  .star-item{
+    padding:14px;
+  }
+  .contact-box{
+    padding:22px;
+    gap:28px;
+  }
+  .contact-link{
+    grid-template-columns:1fr auto;
+    gap:7px 10px;
+    padding:15px;
+  }
+  .contact-label{
+    grid-column:1;
+  }
+  .contact-value{
+    grid-column:1;
+    font-size:13px;
+  }
+  .contact-arrow{
+    grid-column:2;
+    grid-row:1 / span 2;
+    align-self:center;
+  }
+  .terminal{
+    overflow-wrap:anywhere;
+    font-size:12px;
+  }
+}
+
+@media(max-width:420px){
+  .hero h1{font-size:44px}
+  .terminal-tag{
+    font-size:10px;
+    letter-spacing:.05em;
+  }
+  .photo-wrap,.photo-wrap img,.photo-placeholder{
+    min-height:390px;
+  }
+  .cert{
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+  .cert-code{
+    font-size:18px;
+  }
+}
+
+
+.compact-contact{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:10px;
+  margin-top:28px;
+}
+.compact-link{
+  display:flex;
+  grid-template-columns:none;
+  width:auto;
+  min-width:180px;
+  align-items:center;
+  gap:14px;
+  padding:13px 16px;
+  border:1px solid transparent;
+  background:transparent;
+}
+.compact-link:hover{
+  background:rgba(160,82,45,.08);
+  border-color:rgba(196,119,76,.30);
+  transform:translateX(4px);
+  box-shadow:none;
+}
+.compact-link .contact-icon{
+  width:28px;
+  text-align:center;
+  color:var(--brown-2);
+  font-size:20px;
+}
+.compact-link .contact-value{
+  color:var(--brown-2);
+  font-size:16px;
+  font-weight:700;
+  overflow-wrap:normal;
+}
+@media(max-width:700px){
+  .compact-link{
+    display:flex;
+    grid-template-columns:none;
+    width:auto;
+    padding:12px 8px;
+  }
+  .compact-link .contact-value{
+    grid-column:auto;
+    font-size:15px;
+  }
+}
+
+
+/* Ajustes de integração: preservam a direção visual da referência. */
+body{overflow-x:visible;background-color:#070707}
+body::after{display:none}
+.hero{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:48px}
+.hero h1{font-size:clamp(44px,5.9vw,85px);line-height:1.04}
+.hero>*,.about-grid>*,.project,.cert>*,.star-item{min-width:0}
+.photo-wrap{min-height:0;aspect-ratio:4/5}
+.photo-wrap img{position:absolute;inset:0;min-height:0;width:100%;height:100%;object-fit:cover;object-position:48% 30%}
+.photo-label{font-size:12px}
+.about-panel p{color:var(--muted);font-size:16px;line-height:1.75}
+.about-panel h3{margin-top:0;font-size:22px}
+.star{grid-template-columns:repeat(2,minmax(0,1fr))}
+.star-item span{font-size:14px;line-height:1.6}
+.tag,.star-item b,.tech .n,.project-number,.section-kicker{font-size:12px}
+.btn,.menu{font-size:14px}
+.btn,.menu a{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+section[id],main{scroll-margin-top:125px}
+.contact-box{grid-template-columns:1fr}
+.compact-link .contact-value{color:var(--text)}
+:focus-visible{outline:2px solid #f4efe9;outline-offset:5px}
+.skip-link{position:fixed;top:8px;left:8px;z-index:100;background:#070707;padding:14px;transform:translateY(-160%)}
+.skip-link:focus{transform:translateY(0)}
+@media(max-width:1100px){.nav{gap:12px}.menu{gap:12px}.logo{font-size:14px}}
+@media(max-width:950px){.hero{grid-template-columns:1fr}.hero h1{font-size:clamp(44px,9vw,76px)}.photo-shell{max-width:460px}.about-grid{gap:32px}.nav{flex-wrap:wrap;padding-block:14px}.menu{flex-wrap:wrap;gap:4px 16px}}
+@media(max-width:700px){
+ .menu{display:flex}.nav{gap:6px}.menu a{font-size:12px;min-height:44px}
+ .hero h1{font-size:clamp(36px,9.7vw,64px);line-height:1.08}
+ .terminal-tag{font-size:10px;letter-spacing:0;gap:6px;padding:9px}
+ .photo-shell{max-width:390px}.photo-wrap{min-height:0;aspect-ratio:1/1.08}
+ .photo-wrap img{min-height:0;object-position:50% 22%}
+ .photo-label{font-size:11px}.star{grid-template-columns:1fr}
+ section{padding:64px 0}.btn{display:flex}.project h3{line-height:1.2}
+ .stack-grid{margin-top:28px}.tech{min-height:120px}
+ .cert{grid-template-columns:1fr}.logo{font-size:13px;letter-spacing:.07em}
+ h2{line-height:1.1}.contact-box{padding:22px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}
+ .photo-wrap:hover img,.project:hover,.tech:hover,.cert:hover,.btn:hover,.compact-link:hover{transform:none}
+ .photo-glow{display:none}
+}
+
+</style>
 </head>
+
 <body>
-    <nav>
-        <ul>
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#projetos">Projetos</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
+<a class="skip-link" href="#principal">Pular para o conteúdo</a>
+<header>
+  <div class="container nav">
+    <div class="logo">[ WINNIE.GONÇALVES ]</div>
+    <nav class="menu" aria-label="Navegação principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#stack">Technology Stack</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#certificacoes">Certificações</a>
+      <a href="#contato">Contato</a>
     </nav>
+  </div>
+</header>
 
-    <section id="inicio">
-        <div class="hero container">
-            <h1>Seja Bem-vindo!😊</h1>
-            <p>
-                Aqui você vai descobrir um pouco mais sobre minha jornada e as motivações que me guiaram até aqui. 
-                <br>
-                <i>Lembre-se: o começo pode ser desafiador, mas o progresso é feito de altos e baixos. <br>
-                Você ainda vai errar muito antes de se tornar excelente, e tudo bem! <br>O segredo é estudar, aplicar e nunca parar, porque a prática constante transforma a quantidade em qualidade.</i>
-            </p>
+<main id="principal">
+  <section style="border-top:0;padding:0">
+    <div class="container hero">
+      <div>
+        <div class="terminal-tag"><span class="dot"></span> INFRAESTRUTURA · CLOUD · AUTOMAÇÃO</div>
+        <h1>WINNIE<span>GONÇALVES.</span></h1>
+        <div class="role">Analista de Infraestrutura & Cloud</div>
+        <p class="intro">
+          Infraestrutura & Cloud com automação e IA aplicada ao dia a dia.
+          Uso Codex e Cursor como ferramentas de engenharia para acelerar desenvolvimento,
+          automações e projetos de infraestrutura.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#projetos">Ver projetos</a>
+          <a class="btn" href="#certificacoes">Certificações Microsoft</a>
         </div>
-    </section>
+      </div>
 
-    <section id="sobre">
-        <div class="container">
-            <h2>Sobre mim</h2>
-            <img src="photo.jpg" alt="Winnie Gonçalves" class="profile-photo">
-
-            
-            <p>
-                Olá! <br>Sou Winnie Gonçalves, Analista de Suporte e Infraestrutura, e minha jornada é marcada pela 
-                paixão por tecnologia e pela busca constante por evolução.
-            </p>
-            <br>
-            <p>
-                Aos 29 anos, tomei a decisão de migrar da área de CX para o universo da TI, movida pelo desejo 
-                de resolver problemas de forma criativa e inovadora.
-            </p>
-            <br>
-            <p>
-                Em 2024, concluí minha graduação em Análise e Desenvolvimento de Sistemas, obtive certificações renomadas da Microsoft, como MS-102, 
-                MS-700, AZ-104 e AI-102, que me capacitaram a atuar em ambientes de alta complexidade. 
-                Cada etapa da minha carreira é um reflexo do meu compromisso com o aprendizado contínuo 
-                e a aplicação prática do conhecimento.
-            </p>
-            <br>
-            <p>
-                Acredito que a tecnologia é uma ferramenta poderosa para transformar desafios em soluções, 
-                e é com essa visão que busco contribuir para projetos que realmente façam a diferença.
-            </p>
-            <br>
-            <p>
-                Sempre em busca de novos desafios e oportunidades, estou pronta para aplicar minhas habilidades 
-                em infraestruturas modernas, soluções em nuvem e automação, sempre com foco na melhoria 
-                constante e no impacto positivo.
-            </p>
+      <div class="photo-shell">
+        <div class="photo-wrap" id="foto">
+          <img src="photo.jpeg" alt="Retrato de Winnie Gonçalves" width="1024" height="1024" fetchpriority="high">
+          <div class="photo-grid"></div>
+          <div class="photo-glow"></div>
+          <div class="photo-label">
+            <span>Winnie Gonçalves</span>
+            <span>Infra & Cloud</span>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="projetos">
-        <div class="container">
-            <h2>Meus Projetos</h2>
-            
-            <div class="project">
-                <h3>1. Implantação de Novos Recursos Padronizados em Ambientes em Nuvem</h3>
-                <p>
-                    Implantei novos recursos padronizados em Microsoft Azure, com foco na criação de uma 
-                    infraestrutura otimizada e segura. Esse projeto envolveu a implementação de redes, 
-                    armazenamento e soluções de segurança em nuvem, alinhando a arquitetura de TI aos 
-                    padrões de mercado para garantir escalabilidade e alta disponibilidade.
-                </p>
-                <br>
-                <p><strong>Desafios:</strong> Garantir que a infraestrutura fosse implementada de forma 
-                padronizada e sem impacto nos serviços existentes.</p>
-                <p><strong>Tecnologias utilizadas:</strong> Microsoft Azure, PowerShell, Azure Storage.</p>
-            </div>
-
-            <div class="project">
-                <h3>2. Inventário de Máquinas com Power BI e Integração com AD Local</h3>
-                <p>
-                    Criei e implementei um sistema de inventário de máquinas utilizando Power BI, com 
-                    integração direta ao Active Directory local. O painel gerava relatórios em tempo real 
-                    sobre o estado das máquinas, atualizações de software e informações relevantes para 
-                    a equipe de TI.
-                </p>
-                <br>
-                <p><strong>Desafios:</strong> Integrar dados de diferentes fontes e garantir a precisão 
-                das informações em tempo real.</p>
-                <p><strong>Tecnologias utilizadas:</strong> Power BI, Active Directory, PowerShell.</p>
-            </div>
-
-            <div class="project">
-                <h3>3. Migração de Servidores</h3>
-                <p>
-                    Liderei a migração de servidores físicos para um ambiente virtualizado e em nuvem, 
-                    proporcionando uma infraestrutura mais ágil e fácil de gerenciar. Durante o projeto, 
-                    foram realizados testes de desempenho e otimização para garantir uma transição sem falhas.
-                </p>
-                <br>
-                <p><strong>Desafios:</strong> Minimizar o impacto nos usuários finais e garantir a 
-                continuidade dos serviços durante a migração.</p>
-                <p><strong>Tecnologias utilizadas:</strong> Hyper-V, Microsoft Azure, Windows Server.</p>
-            </div>
-
-            <div class="project">
-                <h3>4. Painel de Monitoramento de Aplicações e Servidores</h3>
-                <p>
-                    Desenvolvi um painel de monitoramento em tempo real para aplicações e servidores críticos. 
-                    O painel fornecia dados sobre a saúde do sistema, utilização de recursos, desempenho das 
-                    aplicações e alertas em caso de falhas.
-                </p>
-                <br>
-                <p><strong>Desafios:</strong> Integrar dados de diferentes fontes e criar alertas eficientes.</p>
-                <p><strong>Tecnologias utilizadas:</strong> Uptime Kuma, Azure Monitor.</p>
-            </div>
-
-            <div class="project">
-                <h3>5. Implantação de Backup de Sites de SharePoint</h3>
-                <p>
-                    Implantei uma solução de backup para sites de SharePoint, garantindo a segurança e a 
-                    continuidade dos dados em caso de falhas ou perdas. A solução foi projetada para fazer 
-                    backup de conteúdo e configurações de sites críticos.
-                </p>
-                <br>
-                <p><strong>Desafios:</strong> Assegurar que os backups sejam feitos de forma contínua e 
-                sem impactar o desempenho dos sites.</p>
-                <p><strong>Tecnologias utilizadas:</strong> SharePoint, Azure Backup 365, Veeam.</p>
-            </div>
+  <section id="sobre">
+    <div class="container">
+      <div class="section-kicker">[ 01 / SOBRE MIM ]</div>
+      <div class="about-grid">
+        <div>
+          <h2>Infraestrutura com visão de automação.</h2>
+          <p class="section-text">
+            Sou formada em Análise e Desenvolvimento de Sistemas (ADS) e atuo com infraestrutura
+            on-premises e cloud, principalmente no ecossistema Microsoft. Também incorporo IA
+            ao meu fluxo de trabalho: utilizo Codex e Cursor no desenvolvimento de aplicações,
+            automações e soluções para infraestrutura. Nas horas vagas, gosto de vibe coding
+            e de experimentar novas formas de construir com IA.
+          </p>
         </div>
-    </section>
 
-    <section id="contato">
-        <div class="container">
-            <h2>Contato</h2>
-            <div class="contact-info">
-                <p><span class="emoji">👩🏾‍🦱</span><strong>Winnie Gonçalves</strong></p>
-                <p><span class="emoji">📧</span><strong><a href="mailto:contato@winniegoncalves.com.br">Email</a></strong></p>
-                <p><span class="emoji">🔗</span><strong><a href="https://www.linkedin.com/in/winniegoncalves" target="_blank">LinkedIn</a></strong></p>
-            </div>
+        <div class="about-panel">
+          <h3>Atuação técnica</h3>
+          <p>Infraestrutura on-premises, Microsoft Azure, Microsoft 365, Microsoft Entra ID e Active Directory.</p>
+          <p>Windows Server e Linux na sustentação de ambientes. PowerShell e Python na automação de operações de TI.</p>
+          <p>IA aplicada, Codex e Cursor como ferramentas de apoio à engenharia e à infraestrutura.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="container">
+      <div class="section-kicker">[ 02 / TECHNOLOGY STACK ]</div>
+      <h2>Technology Stack</h2>
+      <p class="section-text">
+        Tecnologias que fazem parte da minha rotina de infraestrutura, cloud,
+        identidade, automação e sustentação de aplicações.
+      </p>
+
+      <div class="stack-grid">
+        <div class="tech"><span class="n">01</span><strong>Microsoft Azure</strong></div>
+        <div class="tech"><span class="n">02</span><strong>Microsoft 365</strong></div>
+        <div class="tech"><span class="n">03</span><strong>Entra ID</strong></div>
+        <div class="tech"><span class="n">04</span><strong>Active Directory</strong></div>
+        <div class="tech"><span class="n">05</span><strong>PowerShell</strong></div>
+        <div class="tech"><span class="n">06</span><strong>Python / Flask</strong></div>
+        <div class="tech"><span class="n">07</span><strong>Windows Server / IIS</strong></div>
+        <div class="tech"><span class="n">08</span><strong>Linux / Nginx</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <div class="container">
+      <div class="section-kicker">[ 03 / PROJETOS ]</div>
+      <h2>Projetos que resolvem problemas reais.</h2>
+      <p class="section-text">
+        Projetos apresentados pelo impacto técnico e operacional, usando a lógica STAR:
+        situação, tarefa, ação e resultado.
+      </p>
+
+      <div class="projects">
+        <article class="project">
+          <div class="project-number">PROJETO_01</div>
+          <h3>Inventário de TI integrado ao Active Directory</h3>
+          <p>
+            Aplicação interna criada para substituir controles fragmentados e centralizar
+            a gestão de equipamentos, responsáveis, monitores, estoque e histórico.
+          </p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">Flask</span>
+            <span class="tag">Active Directory</span><span class="tag">PowerShell</span>
+            <span class="tag">IIS</span><span class="tag">Waitress</span>
+            <span class="tag">RSAT</span><span class="tag">Windows Server</span>
+          </div>
+          <div class="star">
+            <div class="star-item"><b>SITUAÇÃO</b><span>Dados de ativos espalhados e forte dependência de controles manuais.</span></div>
+            <div class="star-item"><b>TAREFA</b><span>Criar uma visão única e operacional do parque de equipamentos.</span></div>
+            <div class="star-item"><b>AÇÃO</b><span>Integração com AD, agente de coleta, filtros, históricos e publicação web interna.</span></div>
+            <div class="star-item"><b>RESULTADO</b><span>Maior rastreabilidade e consulta centralizada de ativos e responsáveis.</span></div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-number">PROJETO_02</div>
+          <h3>Automação de criação de usuários</h3>
+          <p>
+            Fluxo de provisionamento no Active Directory criado para impedir duplicidades,
+            tornar o processo idempotente e reduzir falhas causadas por reprocessamento.
+          </p>
+          <div class="tags">
+            <span class="tag">PowerShell</span><span class="tag">Active Directory</span>
+            <span class="tag">JSON</span><span class="tag">Idempotência</span>
+            <span class="tag">Locking</span>
+          </div>
+          <div class="star">
+            <div class="star-item"><b>SITUAÇÃO</b><span>Chamados reabertos ou executados novamente podiam repetir operações.</span></div>
+            <div class="star-item"><b>TAREFA</b><span>Garantir provisionamento seguro e repetível.</span></div>
+            <div class="star-item"><b>AÇÃO</b><span>Idempotência por TicketId, histórico permanente, controle de processamento e lock exclusivo. Validação antes do New-ADUser e tratamento de conflitos reais de nomes.</span></div>
+            <div class="star-item"><b>RESULTADO</b><span>Redução do risco de contas duplicadas e maior confiabilidade no fluxo.</span></div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-number">PROJETO_03</div>
+          <h3>Governança e custos no Microsoft Azure</h3>
+          <p>
+            Solução para consolidar custos Azure e relacioná-los à estrutura interna,
+            permitindo classificação por áreas, sistemas, clientes e centros de custo.
+          </p>
+          <div class="tags">
+            <span class="tag">Azure</span><span class="tag">Cost Management</span>
+            <span class="tag">Python</span><span class="tag">PostgreSQL</span>
+            <span class="tag">RBAC</span><span class="tag">Nginx</span>
+            <span class="tag">App Registration</span><span class="tag">Alembic</span>
+          </div>
+          <div class="star">
+            <div class="star-item"><b>SITUAÇÃO</b><span>Custos técnicos não refletiam diretamente a estrutura corporativa.</span></div>
+            <div class="star-item"><b>TAREFA</b><span>Transformar consumo cloud em informação operacional e financeira útil.</span></div>
+            <div class="star-item"><b>AÇÃO</b><span>APIs, classificação temporal, autenticação por aplicação e tratamento de throttling.</span></div>
+            <div class="star-item"><b>RESULTADO</b><span>Base estruturada para análise, rastreabilidade e governança de custos.</span></div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-number">PROJETO_04</div>
+          <h3>Automação de operações em Azure</h3>
+          <p>
+            Padronização de tarefas administrativas com scripts, APIs e identidade de
+            aplicação para reduzir tarefas repetitivas e melhorar a consistência operacional.
+          </p>
+          <div class="tags">
+            <span class="tag">Azure CLI</span><span class="tag">PowerShell</span>
+            <span class="tag">Microsoft Graph</span><span class="tag">Azure REST APIs</span>
+            <span class="tag">Entra ID</span><span class="tag">RBAC</span>
+          </div>
+          <div class="star">
+            <div class="star-item"><b>SITUAÇÃO</b><span>Operações cloud dependiam de consultas e ações manuais recorrentes.</span></div>
+            <div class="star-item"><b>TAREFA</b><span>Padronizar e automatizar rotinas administrativas.</span></div>
+            <div class="star-item"><b>AÇÃO</b><span>Uso de scripts, APIs e autenticação de aplicação para execução reproduzível.</span></div>
+            <div class="star-item"><b>RESULTADO</b><span>Menos operação manual e maior padronização em tarefas de infraestrutura.</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="certificacoes">
+    <div class="container">
+      <div class="section-kicker">[ 04 / CERTIFICAÇÕES MICROSOFT ]</div>
+      <h2>Conhecimento validado.</h2>
+
+      <div class="certs">
+        <div class="cert">
+          <div class="cert-code">AZ-104</div>
+          <div><strong>Microsoft Azure Administrator</strong><p>Administração de identidades, redes, computação, armazenamento e recursos no Azure.</p></div>
+        </div>
+        <div class="cert">
+          <div class="cert-code">AZ-305</div>
+          <div><strong>Azure Solutions Architect</strong><p>Arquitetura de identidade, governança, infraestrutura, continuidade e soluções Azure.</p></div>
+        </div>
+        <div class="cert">
+          <div class="cert-code">MS-102</div>
+          <div><strong>Microsoft 365 Administrator</strong><p>Administração de tenant Microsoft 365, identidade, segurança, governança e serviços corporativos.</p></div>
+        </div>
+        <div class="cert">
+          <div class="cert-code">MS-700</div>
+          <div><strong>Managing Microsoft Teams</strong><p>Administração, políticas, colaboração, reuniões, governança e operação do Microsoft Teams.</p></div>
+        </div>
+        <div class="cert">
+          <div class="cert-code">SC-300</div>
+          <div><strong>Identity and Access Administrator</strong><p>Microsoft Entra ID, autenticação, acesso condicional e governança de identidades.</p></div>
+        </div>
+        <div class="cert">
+          <div class="cert-code">AI-102</div>
+          <div><strong>Azure AI Engineer</strong><p>Projeto e implementação de soluções de inteligência artificial utilizando serviços Microsoft Azure.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="container">
+      <div class="contact-box">
+        <div>
+          <div class="section-kicker">[ 05 / CONTATO ]</div>
+          <h2>Contato.</h2>
+
+          <div class="contact-links compact-contact">
+            <a class="contact-link compact-link" href="mailto:contato@winniegoncalves.com.br" aria-label="Enviar e-mail para Winnie Gonçalves">
+              <span class="contact-icon">✉</span>
+              <span class="contact-value">E-mail</span>
+            </a>
+
+            <a class="contact-link compact-link" href="https://www.linkedin.com/in/winniegoncalves/" target="_blank" rel="noopener noreferrer" aria-label="Abrir LinkedIn de Winnie Gonçalves">
+              <span class="contact-icon">↗</span>
+              <span class="contact-value">LinkedIn</span>
+            </a>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <span>© 2026 Winnie Gonçalves</span>
+    <span>Infraestrutura · Cloud · Automação</span>
+  </div>
+</footer>
+
+<script>
+const photo = document.getElementById("foto");
+photo.addEventListener("mousemove", (e) => {
+  if (window.matchMedia("(prefers-reduced-motion: reduce), (pointer: coarse)").matches) return;
+  const rect = photo.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  photo.style.setProperty("--mx", x + "px");
+  photo.style.setProperty("--my", y + "px");
+});
+</script>
 </body>
 </html>
