@@ -3,23 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Winnie Gonçalves | Infraestrutura & Cloud</title>
-<meta name="description" content="Portfólio de Winnie Gonçalves — Infraestrutura, Cloud, Microsoft 365, Azure e Automação.">
+<title>Winnie Gonçalves</title>
+<meta name="description" content="Winnie Gonçalves">
+<link rel="canonical" href="https://www.winniegoncalves.com.br/">
+<meta property="og:title" content="Winnie Gonçalves">
+<meta property="og:description" content="Winnie Gonçalves">
+<meta property="og:url" content="https://www.winniegoncalves.com.br/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Winnie Gonçalves">
+<meta name="twitter:description" content="Winnie Gonçalves">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
 <style>
 :root{
   --bg:#070707;
-  --bg-soft:#0c0a09;
-  --panel:#100d0b;
-  --panel-2:#15100d;
-  --text:#f4efe9;
-  --muted:#aaa09a;
-  --brown:#A0522D;
-  --brown-2:#C4774C;
-  --brown-3:#6F351F;
-  --line:rgba(160,82,45,.28);
+  --bg-soft:#0b0b0b;
+  --panel:#101010;
+  --panel-2:#141414;
+  --text:#f2f2f2;
+  --muted:#aaaaaa;
+  --accent:#1E90FF;
+  --accent-light:#63B3FF;
+  --accent-dark:#1268B3;
+  --line:rgba(30,144,255,.28);
   --line-soft:rgba(255,255,255,.06);
-  --glow:rgba(160,82,45,.25);
+  --glow:rgba(30,144,255,.25);
 }
 
 *{box-sizing:border-box}
@@ -28,9 +40,9 @@ body{
   margin:0;
   color:var(--text);
   background:
-    radial-gradient(circle at 12% 0%, rgba(160,82,45,.13), transparent 28%),
-    radial-gradient(circle at 92% 34%, rgba(160,82,45,.07), transparent 22%),
-    linear-gradient(#090807,#070707);
+    radial-gradient(circle at 12% 0%, rgba(30,144,255,.06), transparent 28%),
+    radial-gradient(circle at 92% 34%, rgba(30,144,255,.07), transparent 22%),
+    linear-gradient(#090909,#070707);
   font-family:Inter,Segoe UI,Arial,sans-serif;
   overflow-x:hidden;
 }
@@ -54,13 +66,13 @@ body::after{
   position:fixed;
   width:520px;
   height:520px;
-  border:1px solid rgba(160,82,45,.1);
+  border:1px solid rgba(30,144,255,.1);
   border-radius:50%;
   right:-260px;
   top:120px;
   box-shadow:
-    0 0 0 80px rgba(160,82,45,.025),
-    0 0 0 160px rgba(160,82,45,.018);
+    0 0 0 80px rgba(30,144,255,.025),
+    0 0 0 160px rgba(30,144,255,.018);
   z-index:-1;
   pointer-events:none;
 }
@@ -89,7 +101,7 @@ header{
   font-family:"Cascadia Code","Courier New",monospace;
   font-weight:800;
   letter-spacing:.12em;
-  color:var(--brown-2);
+  color:var(--accent-light);
 }
 
 .menu{
@@ -104,7 +116,7 @@ header{
   position:absolute;
   left:0;right:100%;bottom:-7px;
   height:1px;
-  background:var(--brown-2);
+  background:var(--accent-light);
   transition:.25s ease;
 }
 .menu a:hover{color:white}
@@ -125,8 +137,8 @@ header{
   gap:10px;
   padding:9px 13px;
   border:1px solid var(--line);
-  background:rgba(160,82,45,.06);
-  color:#d6a283;
+  background:rgba(30,144,255,.06);
+  color:#a5d2ff;
   font-family:"Cascadia Code","Courier New",monospace;
   font-size:12px;
   letter-spacing:.08em;
@@ -135,8 +147,8 @@ header{
 
 .dot{
   width:8px;height:8px;border-radius:50%;
-  background:var(--brown-2);
-  box-shadow:0 0 14px rgba(196,119,76,.75);
+  background:var(--accent-light);
+  box-shadow:0 0 14px rgba(99,179,255,.75);
 }
 
 .hero h1{
@@ -148,8 +160,8 @@ header{
 }
 .hero h1 span{
   display:block;
-  color:var(--brown-2);
-  text-shadow:0 0 28px rgba(160,82,45,.12);
+  color:var(--accent-light);
+  text-shadow:0 0 28px rgba(30,144,255,.12);
 }
 
 .role{
@@ -181,13 +193,13 @@ header{
   transition:.22s ease;
 }
 .btn.primary{
-  background:linear-gradient(135deg,var(--brown),var(--brown-3));
-  border-color:var(--brown);
-  color:#fff;
+  background:linear-gradient(135deg,var(--accent-light),var(--accent));
+  border-color:var(--accent);
+  color:#070707;
 }
 .btn:hover{
   transform:translateY(-3px);
-  box-shadow:0 10px 30px rgba(160,82,45,.15);
+  box-shadow:0 10px 30px rgba(30,144,255,.15);
 }
 
 .photo-shell{
@@ -196,7 +208,7 @@ header{
   margin-inline:auto;
   border-radius:28px;
   padding:1px;
-  background:linear-gradient(145deg,rgba(196,119,76,.8),rgba(160,82,45,.12),rgba(255,255,255,.08));
+  background:linear-gradient(145deg,rgba(99,179,255,.8),rgba(30,144,255,.12),rgba(255,255,255,.08));
   box-shadow:0 30px 80px rgba(0,0,0,.35);
 }
 
@@ -206,8 +218,8 @@ header{
   border-radius:27px;
   min-height:560px;
   background:
-    radial-gradient(circle at 50% 35%, rgba(160,82,45,.20), transparent 25%),
-    linear-gradient(145deg,#17100d,#0b0908);
+    radial-gradient(circle at 50% 35%, rgba(30,144,255,.20), transparent 25%),
+    linear-gradient(145deg,#121212,#0b0b0b);
   isolation:isolate;
 }
 
@@ -227,11 +239,11 @@ header{
   display:grid;
   place-items:center;
   text-align:center;
-  color:#8e8179;
+  color:#949494;
   font-family:"Cascadia Code","Courier New",monospace;
   padding:40px;
 }
-.photo-placeholder strong{display:block;color:#d9b39d;font-size:18px;margin-bottom:8px}
+.photo-placeholder strong{display:block;color:#b6daff;font-size:18px;margin-bottom:8px}
 
 /* brilho que segue o mouse */
 .photo-glow{
@@ -241,8 +253,8 @@ header{
   pointer-events:none;
   background:radial-gradient(
     circle 170px at var(--mx,50%) var(--my,50%),
-    rgba(196,119,76,.32),
-    rgba(160,82,45,.11) 35%,
+    rgba(30,144,255,.20),
+    rgba(30,144,255,.11) 35%,
     transparent 72%
   );
   opacity:0;
@@ -276,13 +288,13 @@ header{
   gap:14px;
   padding:14px 16px;
   border-radius:14px;
-  border:1px solid rgba(196,119,76,.30);
+  border:1px solid rgba(99,179,255,.30);
   background:rgba(8,8,8,.68);
   backdrop-filter:blur(12px);
   font-family:"Cascadia Code","Courier New",monospace;
   font-size:12px;
 }
-.photo-label span:last-child{color:var(--brown-2)}
+.photo-label span:last-child{color:var(--accent-light)}
 
 section{
   padding:105px 0;
@@ -290,7 +302,7 @@ section{
 }
 
 .section-kicker{
-  color:var(--brown-2);
+  color:var(--accent-light);
   font-family:"Cascadia Code","Courier New",monospace;
   letter-spacing:.1em;
   font-size:12px;
@@ -323,11 +335,11 @@ h2{
   border:1px solid var(--line);
   border-radius:22px;
   background:
-    linear-gradient(145deg,rgba(160,82,45,.08),rgba(255,255,255,.015));
+    linear-gradient(145deg,rgba(30,144,255,.08),rgba(255,255,255,.015));
 }
 .about-panel code{
   display:block;
-  color:#d9a487;
+  color:#a5d2ff;
   line-height:1.9;
   font-size:13px;
   white-space:pre-wrap;
@@ -344,7 +356,7 @@ h2{
   padding:22px;
   border:1px solid var(--line);
   border-radius:18px;
-  background:linear-gradient(150deg,rgba(255,255,255,.02),rgba(160,82,45,.035));
+  background:linear-gradient(150deg,rgba(255,255,255,.02),rgba(30,144,255,.035));
   transition:.25s ease;
   position:relative;
   overflow:hidden;
@@ -354,18 +366,18 @@ h2{
   position:absolute;
   inset:auto -30% -65% -30%;
   height:110px;
-  background:radial-gradient(circle,rgba(160,82,45,.24),transparent 65%);
+  background:radial-gradient(circle,rgba(30,144,255,.24),transparent 65%);
   opacity:0;
   transition:.25s ease;
 }
 .tech:hover{
-  border-color:rgba(196,119,76,.55);
+  border-color:rgba(99,179,255,.55);
   transform:translateY(-5px);
   box-shadow:0 22px 42px rgba(0,0,0,.24);
 }
 .tech:hover::before{opacity:1}
 .tech .n{
-  color:var(--brown-2);
+  color:var(--accent-light);
   font-family:"Cascadia Code","Courier New",monospace;
   font-size:11px;
 }
@@ -389,7 +401,7 @@ h2{
   border:1px solid var(--line);
   border-radius:24px;
   background:
-    linear-gradient(145deg,rgba(160,82,45,.08),rgba(255,255,255,.012));
+    linear-gradient(145deg,rgba(30,144,255,.08),rgba(255,255,255,.012));
   transition:.3s ease;
 }
 .project::after{
@@ -398,18 +410,18 @@ h2{
   width:230px;height:230px;
   right:-130px;top:-130px;
   border-radius:50%;
-  border:1px solid rgba(196,119,76,.16);
+  border:1px solid rgba(99,179,255,.16);
   box-shadow:
-    0 0 0 45px rgba(160,82,45,.025),
-    0 0 0 90px rgba(160,82,45,.015);
+    0 0 0 45px rgba(30,144,255,.025),
+    0 0 0 90px rgba(30,144,255,.015);
 }
 .project:hover{
   transform:translateY(-6px);
-  border-color:rgba(196,119,76,.58);
-  box-shadow:0 25px 55px rgba(0,0,0,.25), 0 0 25px rgba(160,82,45,.08);
+  border-color:rgba(99,179,255,.58);
+  box-shadow:0 25px 55px rgba(0,0,0,.25), 0 0 25px rgba(30,144,255,.08);
 }
 .project-number{
-  color:var(--brown-2);
+  color:var(--accent-light);
   font-family:"Cascadia Code","Courier New",monospace;
   font-size:12px;
   letter-spacing:.1em;
@@ -430,9 +442,9 @@ h2{
 .tag{
   padding:7px 10px;
   border-radius:999px;
-  border:1px solid rgba(160,82,45,.3);
-  background:rgba(160,82,45,.07);
-  color:#cda18a;
+  border:1px solid rgba(30,144,255,.3);
+  background:rgba(30,144,255,.07);
+  color:#b6daff;
   font-size:11px;
 }
 
@@ -450,12 +462,12 @@ h2{
 }
 .star-item b{
   display:block;
-  color:var(--brown-2);
+  color:var(--accent-light);
   margin-bottom:6px;
   font-size:11px;
 }
 .star-item span{
-  color:#b5aaa4;
+  color:#b5b5b5;
   font-size:12px;
   line-height:1.45;
 }
@@ -477,11 +489,11 @@ h2{
   transition:.22s ease;
 }
 .cert:hover{
-  border-color:rgba(196,119,76,.48);
+  border-color:rgba(99,179,255,.48);
   transform:translateX(4px);
 }
 .cert-code{
-  color:var(--brown-2);
+  color:var(--accent-light);
   font-family:"Cascadia Code","Courier New",monospace;
   font-weight:900;
   font-size:20px;
@@ -492,7 +504,7 @@ h2{
 .contact-box{
   border:1px solid var(--line);
   border-radius:24px;
-  background:linear-gradient(145deg,rgba(160,82,45,.08),rgba(255,255,255,.01));
+  background:linear-gradient(145deg,rgba(30,144,255,.08),rgba(255,255,255,.01));
   padding:34px;
   display:grid;
   grid-template-columns:1.1fr .9fr;
@@ -501,15 +513,15 @@ h2{
 .terminal{
   padding:22px;
   border-radius:17px;
-  background:#060504;
-  border:1px solid rgba(160,82,45,.23);
+  background:#060606;
+  border:1px solid rgba(30,144,255,.23);
   font-family:"Cascadia Code","Courier New",monospace;
   line-height:1.85;
   font-size:13px;
 }
-.prompt{color:var(--brown-2)}
+.prompt{color:var(--accent-light)}
 .blink{
-  width:8px;height:15px;background:var(--brown-2);
+  width:8px;height:15px;background:var(--accent-light);
   display:inline-block;vertical-align:-2px;
   animation:blink 1s steps(1) infinite;
 }
@@ -518,7 +530,7 @@ h2{
 footer{
   padding:32px 0 50px;
   border-top:1px solid var(--line-soft);
-  color:#7f7772;
+  color:#969696;
   font-size:12px;
 }
 .footer-row{display:flex;justify-content:space-between;gap:20px}
@@ -558,22 +570,22 @@ footer{
 }
 .contact-link:hover{
   transform:translateY(-3px);
-  border-color:rgba(196,119,76,.58);
-  background:rgba(160,82,45,.07);
+  border-color:rgba(99,179,255,.58);
+  background:rgba(30,144,255,.07);
   box-shadow:0 14px 35px rgba(0,0,0,.22);
 }
 .contact-label{
-  color:var(--brown-2);
+  color:var(--accent-light);
   font-family:"Cascadia Code","Courier New",monospace;
   font-size:11px;
   letter-spacing:.09em;
 }
 .contact-value{
-  color:#e8dfd9;
+  color:#e8e8e8;
   overflow-wrap:anywhere;
 }
 .contact-arrow{
-  color:var(--brown-2);
+  color:var(--accent-light);
   font-size:18px;
 }
 
@@ -701,19 +713,19 @@ footer{
   background:transparent;
 }
 .compact-link:hover{
-  background:rgba(160,82,45,.08);
-  border-color:rgba(196,119,76,.30);
+  background:rgba(30,144,255,.08);
+  border-color:rgba(99,179,255,.30);
   transform:translateX(4px);
   box-shadow:none;
 }
 .compact-link .contact-icon{
   width:28px;
   text-align:center;
-  color:var(--brown-2);
+  color:var(--accent-light);
   font-size:20px;
 }
 .compact-link .contact-value{
-  color:var(--brown-2);
+  color:var(--accent-light);
   font-size:16px;
   font-weight:700;
   overflow-wrap:normal;
@@ -750,8 +762,8 @@ body::after{display:none}
 .btn,.menu a{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
 section[id],main{scroll-margin-top:125px}
 .contact-box{grid-template-columns:1fr}
-.compact-link .contact-value{color:var(--text)}
-:focus-visible{outline:2px solid #f4efe9;outline-offset:5px}
+.compact-link .contact-value{color:var(--accent-light)}
+:focus-visible{outline:2px solid #63B3FF;outline-offset:5px}
 .skip-link{position:fixed;top:8px;left:8px;z-index:100;background:#070707;padding:14px;transform:translateY(-160%)}
 .skip-link:focus{transform:translateY(0)}
 @media(max-width:1100px){.nav{gap:12px}.menu{gap:12px}.logo{font-size:14px}}
