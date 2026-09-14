@@ -959,10 +959,9 @@ h2{font-size:clamp(34px,4.5vw,62px);line-height:1.12;overflow-wrap:break-word}
       <div class="projects">
         <article class="project">
           <div class="project-number">PROJETO_01</div>
-          <h3>Inventário de TI integrado ao Active Directory</h3>
+          <h3>Inventário de TI e Gestão de Ativos</h3>
           <p>
-            Aplicação interna criada para substituir controles fragmentados e centralizar
-            a gestão de equipamentos, responsáveis, monitores, estoque e histórico.
+            Aplicação web interna desenvolvida para centralizar o inventário e facilitar a gestão e localização dos equipamentos da empresa.
           </p>
           <div class="tags">
             <span class="tag">Python</span><span class="tag">Flask</span>
@@ -971,30 +970,29 @@ h2{font-size:clamp(34px,4.5vw,62px);line-height:1.12;overflow-wrap:break-word}
             <span class="tag">RSAT</span><span class="tag">Windows Server</span>
           </div>
           <div class="star">
-            <div class="star-item"><b>SITUAÇÃO</b><span>Dados de ativos espalhados e forte dependência de controles manuais.</span></div>
-            <div class="star-item"><b>TAREFA</b><span>Criar uma visão única e operacional do parque de equipamentos.</span></div>
-            <div class="star-item"><b>AÇÃO</b><span>Integração com AD, agente de coleta, filtros, históricos e publicação web interna.</span></div>
-            <div class="star-item"><b>RESULTADO</b><span>Maior rastreabilidade e consulta centralizada de ativos e responsáveis.</span></div>
+            <div class="star-item"><b>SITUAÇÃO</b><span>Informações de equipamentos e responsáveis distribuídas em controles manuais, dificultando consultas e a identificação dos ativos.</span></div>
+            <div class="star-item"><b>TAREFA</b><span>Criar uma solução centralizada para gestão do parque de equipamentos e consulta rápida de máquinas e responsáveis.</span></div>
+            <div class="star-item"><b>AÇÃO</b><span>Importação inicial dos computadores do domínio via Active Directory, organização dos ativos em uma aplicação web e criação de recursos para cadastro e atualização de novos equipamentos. Implementação de busca por máquina e responsável, além de filtros, histórico e gestão de monitores e estoque.</span></div>
+            <div class="star-item"><b>RESULTADO</b><span>Centralização do inventário e maior agilidade para localizar equipamentos, identificar responsáveis e manter as informações do parque atualizadas.</span></div>
           </div>
         </article>
 
         <article class="project">
           <div class="project-number">PROJETO_02</div>
-          <h3>Automação de criação de usuários</h3>
+          <h3>Automação de Provisionamento de Usuários</h3>
           <p>
-            Fluxo de provisionamento no Active Directory criado para impedir duplicidades,
-            tornar o processo idempotente e reduzir falhas causadas por reprocessamento.
+            Automação desenvolvida para transformar solicitações de admissão em um fluxo automatizado de provisionamento no Active Directory.
           </p>
           <div class="tags">
             <span class="tag">PowerShell</span><span class="tag">Active Directory</span>
-            <span class="tag">JSON</span><span class="tag">Idempotência</span>
-            <span class="tag">Locking</span>
+            <span class="tag">Zammad</span><span class="tag">Webhook</span>
+            <span class="tag">Windows Server</span><span class="tag">Automação</span>
           </div>
           <div class="star">
-            <div class="star-item"><b>SITUAÇÃO</b><span>Chamados reabertos ou executados novamente podiam repetir operações.</span></div>
-            <div class="star-item"><b>TAREFA</b><span>Garantir provisionamento seguro e repetível.</span></div>
-            <div class="star-item"><b>AÇÃO</b><span>Idempotência por TicketId, histórico permanente, controle de processamento e lock exclusivo. Validação antes do New-ADUser e tratamento de conflitos reais de nomes.</span></div>
-            <div class="star-item"><b>RESULTADO</b><span>Redução do risco de contas duplicadas e maior confiabilidade no fluxo.</span></div>
+            <div class="star-item"><b>SITUAÇÃO</b><span>O processo de admissão exigia execução manual de etapas para criação e configuração das contas dos novos colaboradores.</span></div>
+            <div class="star-item"><b>TAREFA</b><span>Automatizar o provisionamento a partir das solicitações de admissão, reduzindo intervenção manual e evitando processamento duplicado.</span></div>
+            <div class="star-item"><b>AÇÃO</b><span>Criação de webhook no Zammad e de um serviço em servidor dedicado para receber, organizar e processar as solicitações em fila. Automatização via PowerShell da criação dos usuários no Active Directory e inclusão nos grupos de segurança definidos, com controle por TicketId, prevenção de duplicidades e registro das execuções.</span></div>
+            <div class="star-item"><b>RESULTADO</b><span>Redução das tarefas manuais no processo de admissão, maior padronização do provisionamento e rastreabilidade das execuções para acompanhamento e auditoria.</span></div>
           </div>
         </article>
 
