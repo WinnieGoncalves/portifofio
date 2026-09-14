@@ -24,19 +24,60 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
 <style>
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/roboto-mono-400.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/roboto-mono-500.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/roboto-mono-600.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/roboto-mono-700.ttf) format('truetype');
+}
+
 :root{
+  --font-mono:"Roboto Mono","Consolas","Cascadia Mono",monospace;
   --bg:#070707;
   --bg-soft:#0b0b0b;
   --panel:#101010;
   --panel-2:#141414;
   --text:#f2f2f2;
   --muted:#aaaaaa;
-  --accent:#1E90FF;
-  --accent-light:#63B3FF;
-  --accent-dark:#1268B3;
-  --line:rgba(30,144,255,.28);
+  --accent:#556B2F;
+  --accent-light:#7C9848;
+  --accent-dark:#35431D;
+  --accent-015:rgba(85,107,47,0.015);
+  --accent-025:rgba(85,107,47,0.025);
+  --accent-050:rgba(85,107,47,0.05);
+  --accent-100:rgba(85,107,47,0.1);
+  --accent-150:rgba(85,107,47,0.15);
+  --accent-200:rgba(85,107,47,0.2);
+  --accent-250:rgba(85,107,47,0.25);
+  --accent-300:rgba(85,107,47,0.3);
+  --accent-500:rgba(85,107,47,0.5);
+  --accent-750:rgba(85,107,47,0.75);
+  --accent-800:rgba(85,107,47,0.8);
+  --line:var(--accent-300);
   --line-soft:rgba(255,255,255,.06);
-  --glow:rgba(30,144,255,.25);
+  --glow:var(--accent-250);
 }
 
 *{box-sizing:border-box}
@@ -45,10 +86,10 @@ body{
   margin:0;
   color:var(--text);
   background:
-    radial-gradient(circle at 12% 0%, rgba(30,144,255,.06), transparent 28%),
-    radial-gradient(circle at 92% 34%, rgba(30,144,255,.07), transparent 22%),
+    radial-gradient(circle at 12% 0%, var(--accent-050), transparent 28%),
+    radial-gradient(circle at 92% 34%, var(--accent-050), transparent 22%),
     linear-gradient(#090909,#070707);
-  font-family:Inter,Segoe UI,Arial,sans-serif;
+  font-family:var(--font-mono);
   overflow-x:hidden;
 }
 
@@ -71,13 +112,13 @@ body::after{
   position:fixed;
   width:520px;
   height:520px;
-  border:1px solid rgba(30,144,255,.1);
+  border:1px solid var(--accent-100);
   border-radius:50%;
   right:-260px;
   top:120px;
   box-shadow:
-    0 0 0 80px rgba(30,144,255,.025),
-    0 0 0 160px rgba(30,144,255,.018);
+    0 0 0 80px var(--accent-025),
+    0 0 0 160px var(--accent-015);
   z-index:-1;
   pointer-events:none;
 }
@@ -103,8 +144,8 @@ header{
 }
 
 .logo{
-  font-family:"Cascadia Code","Courier New",monospace;
-  font-weight:800;
+  font-family:var(--font-mono);
+  font-weight:700;
   letter-spacing:.12em;
   color:var(--accent-light);
 }
@@ -142,9 +183,9 @@ header{
   gap:10px;
   padding:9px 13px;
   border:1px solid var(--line);
-  background:rgba(30,144,255,.06);
-  color:#a5d2ff;
-  font-family:"Cascadia Code","Courier New",monospace;
+  background:var(--accent-050);
+  color:var(--accent-light);
+  font-family:var(--font-mono);
   font-size:12px;
   letter-spacing:.08em;
   margin-bottom:26px;
@@ -153,7 +194,7 @@ header{
 .dot{
   width:8px;height:8px;border-radius:50%;
   background:var(--accent-light);
-  box-shadow:0 0 14px rgba(99,179,255,.75);
+  box-shadow:0 0 14px var(--accent-750);
 }
 
 .hero h1{
@@ -166,7 +207,7 @@ header{
 .hero h1 span{
   display:block;
   color:var(--accent-light);
-  text-shadow:0 0 28px rgba(30,144,255,.12);
+  text-shadow:0 0 28px var(--accent-100);
 }
 
 .role{
@@ -198,13 +239,13 @@ header{
   transition:.22s ease;
 }
 .btn.primary{
-  background:linear-gradient(135deg,var(--accent-light),var(--accent));
+  background:linear-gradient(135deg,var(--accent),var(--accent-dark));
   border-color:var(--accent);
-  color:#070707;
+  color:#f2f2f2;
 }
 .btn:hover{
   transform:translateY(-3px);
-  box-shadow:0 10px 30px rgba(30,144,255,.15);
+  box-shadow:0 10px 30px var(--accent-150);
 }
 
 .photo-shell{
@@ -213,7 +254,7 @@ header{
   margin-inline:auto;
   border-radius:28px;
   padding:1px;
-  background:linear-gradient(145deg,rgba(99,179,255,.8),rgba(30,144,255,.12),rgba(255,255,255,.08));
+  background:linear-gradient(145deg,var(--accent-800),var(--accent-100),rgba(255,255,255,.08));
   box-shadow:0 30px 80px rgba(0,0,0,.35);
 }
 
@@ -223,7 +264,7 @@ header{
   border-radius:27px;
   min-height:560px;
   background:
-    radial-gradient(circle at 50% 35%, rgba(30,144,255,.20), transparent 25%),
+    radial-gradient(circle at 50% 35%, var(--accent-200), transparent 25%),
     linear-gradient(145deg,#121212,#0b0b0b);
   isolation:isolate;
 }
@@ -234,7 +275,6 @@ header{
   min-height:560px;
   object-fit:cover;
   display:block;
-  filter:saturate(.9) contrast(1.03);
   transition:transform .6s ease, filter .6s ease;
 }
 
@@ -245,10 +285,10 @@ header{
   place-items:center;
   text-align:center;
   color:#949494;
-  font-family:"Cascadia Code","Courier New",monospace;
+  font-family:var(--font-mono);
   padding:40px;
 }
-.photo-placeholder strong{display:block;color:#b6daff;font-size:18px;margin-bottom:8px}
+.photo-placeholder strong{display:block;color:var(--accent-light);font-size:18px;margin-bottom:8px}
 
 /* brilho que segue o mouse */
 .photo-glow{
@@ -258,8 +298,8 @@ header{
   pointer-events:none;
   background:radial-gradient(
     circle 170px at var(--mx,50%) var(--my,50%),
-    rgba(30,144,255,.20),
-    rgba(30,144,255,.11) 35%,
+    var(--accent-200),
+    var(--accent-100) 35%,
     transparent 72%
   );
   opacity:0;
@@ -267,7 +307,7 @@ header{
   mix-blend-mode:screen;
 }
 .photo-wrap:hover .photo-glow{opacity:1}
-.photo-wrap:hover img{transform:scale(1.025);filter:saturate(1.02) contrast(1.05)}
+.photo-wrap:hover img{transform:scale(1.025)}
 
 .photo-grid{
   position:absolute;
@@ -293,10 +333,10 @@ header{
   gap:14px;
   padding:14px 16px;
   border-radius:14px;
-  border:1px solid rgba(99,179,255,.30);
+  border:1px solid var(--accent-300);
   background:rgba(8,8,8,.68);
   backdrop-filter:blur(12px);
-  font-family:"Cascadia Code","Courier New",monospace;
+  font-family:var(--font-mono);
   font-size:12px;
 }
 .photo-label span:last-child{color:var(--accent-light)}
@@ -308,7 +348,7 @@ section{
 
 .section-kicker{
   color:var(--accent-light);
-  font-family:"Cascadia Code","Courier New",monospace;
+  font-family:var(--font-mono);
   letter-spacing:.1em;
   font-size:12px;
   margin-bottom:16px;
@@ -340,56 +380,14 @@ h2{
   border:1px solid var(--line);
   border-radius:22px;
   background:
-    linear-gradient(145deg,rgba(30,144,255,.08),rgba(255,255,255,.015));
+    linear-gradient(145deg,var(--accent-100),rgba(255,255,255,.015));
 }
 .about-panel code{
   display:block;
-  color:#a5d2ff;
+  color:var(--accent-light);
   line-height:1.9;
   font-size:13px;
   white-space:pre-wrap;
-}
-
-.stack-grid{
-  margin-top:45px;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-}
-.tech{
-  min-height:105px;
-  padding:16px 20px;
-  border:1px solid var(--line);
-  border-radius:18px;
-  background:linear-gradient(150deg,rgba(255,255,255,.02),rgba(30,144,255,.035));
-  transition:.25s ease;
-  position:relative;
-  overflow:hidden;
-}
-.tech::before{
-  content:"";
-  position:absolute;
-  inset:auto -30% -65% -30%;
-  height:110px;
-  background:radial-gradient(circle,rgba(30,144,255,.24),transparent 65%);
-  opacity:0;
-  transition:.25s ease;
-}
-.tech:hover{
-  border-color:rgba(99,179,255,.55);
-  transform:translateY(-5px);
-  box-shadow:0 22px 42px rgba(0,0,0,.24);
-}
-.tech:hover::before{opacity:1}
-.tech .n{
-  color:var(--accent-light);
-  font-family:"Cascadia Code","Courier New",monospace;
-  font-size:11px;
-}
-.tech strong{
-  position:absolute;
-  left:20px;right:20px;bottom:16px;
-  font-size:16px;
 }
 
 .projects{
@@ -406,7 +404,7 @@ h2{
   border:1px solid var(--line);
   border-radius:24px;
   background:
-    linear-gradient(145deg,rgba(30,144,255,.08),rgba(255,255,255,.012));
+    linear-gradient(145deg,var(--accent-100),rgba(255,255,255,.012));
   transition:.3s ease;
 }
 .project::after{
@@ -415,19 +413,19 @@ h2{
   width:230px;height:230px;
   right:-130px;top:-130px;
   border-radius:50%;
-  border:1px solid rgba(99,179,255,.16);
+  border:1px solid var(--accent-150);
   box-shadow:
-    0 0 0 45px rgba(30,144,255,.025),
-    0 0 0 90px rgba(30,144,255,.015);
+    0 0 0 45px var(--accent-025),
+    0 0 0 90px var(--accent-015);
 }
 .project:hover{
   transform:translateY(-6px);
-  border-color:rgba(99,179,255,.58);
-  box-shadow:0 25px 55px rgba(0,0,0,.25), 0 0 25px rgba(30,144,255,.08);
+  border-color:var(--accent-500);
+  box-shadow:0 25px 55px rgba(0,0,0,.25), 0 0 25px var(--accent-100);
 }
 .project-number{
   color:var(--accent-light);
-  font-family:"Cascadia Code","Courier New",monospace;
+  font-family:var(--font-mono);
   font-size:12px;
   letter-spacing:.1em;
 }
@@ -447,9 +445,9 @@ h2{
 .tag{
   padding:7px 10px;
   border-radius:999px;
-  border:1px solid rgba(30,144,255,.3);
-  background:rgba(30,144,255,.07);
-  color:#b6daff;
+  border:1px solid var(--accent-300);
+  background:var(--accent-050);
+  color:var(--accent-light);
   font-size:11px;
 }
 
@@ -494,13 +492,13 @@ h2{
   transition:.22s ease;
 }
 .cert:hover{
-  border-color:rgba(99,179,255,.48);
+  border-color:var(--accent-500);
   transform:translateX(4px);
 }
 .cert-code{
   color:var(--accent-light);
-  font-family:"Cascadia Code","Courier New",monospace;
-  font-weight:900;
+  font-family:var(--font-mono);
+  font-weight:700;
   font-size:20px;
 }
 .cert strong{display:block;margin-bottom:6px}
@@ -509,7 +507,7 @@ h2{
 .contact-box{
   border:1px solid var(--line);
   border-radius:24px;
-  background:linear-gradient(145deg,rgba(30,144,255,.08),rgba(255,255,255,.01));
+  background:linear-gradient(145deg,var(--accent-100),rgba(255,255,255,.01));
   padding:34px;
   display:grid;
   grid-template-columns:1.1fr .9fr;
@@ -519,8 +517,8 @@ h2{
   padding:22px;
   border-radius:17px;
   background:#060606;
-  border:1px solid rgba(30,144,255,.23);
-  font-family:"Cascadia Code","Courier New",monospace;
+  border:1px solid var(--accent-250);
+  font-family:var(--font-mono);
   line-height:1.85;
   font-size:13px;
 }
@@ -543,7 +541,6 @@ footer{
 @media(max-width:950px){
   .hero,.about-grid,.contact-box{grid-template-columns:1fr}
   .hero{padding-top:55px}
-  .stack-grid{grid-template-columns:repeat(2,1fr)}
   .projects{grid-template-columns:1fr}
 }
 @media(max-width:700px){
@@ -551,7 +548,7 @@ footer{
   .hero h1{font-size:58px}
   .photo-wrap,.photo-wrap img,.photo-placeholder{min-height:460px}
   section{padding:80px 0}
-  .stack-grid,.certs,.star{grid-template-columns:1fr}
+  .certs,.star{grid-template-columns:1fr}
   .cert{grid-template-columns:85px 1fr}
   .footer-row{flex-direction:column}
 }
@@ -575,13 +572,13 @@ footer{
 }
 .contact-link:hover{
   transform:translateY(-3px);
-  border-color:rgba(99,179,255,.58);
-  background:rgba(30,144,255,.07);
+  border-color:var(--accent-500);
+  background:var(--accent-050);
   box-shadow:0 14px 35px rgba(0,0,0,.22);
 }
 .contact-label{
   color:var(--accent-light);
-  font-family:"Cascadia Code","Courier New",monospace;
+  font-family:var(--font-mono);
   font-size:11px;
   letter-spacing:.09em;
 }
@@ -718,8 +715,8 @@ footer{
   background:transparent;
 }
 .compact-link:hover{
-  background:rgba(30,144,255,.08);
-  border-color:rgba(99,179,255,.30);
+  background:var(--accent-100);
+  border-color:var(--accent-300);
   transform:translateX(4px);
   box-shadow:none;
 }
@@ -762,13 +759,13 @@ body::after{display:none}
 .about-panel h3{margin-top:0;font-size:22px}
 .star{grid-template-columns:repeat(2,minmax(0,1fr))}
 .star-item span{font-size:14px;line-height:1.6}
-.tag,.star-item b,.tech .n,.project-number,.section-kicker{font-size:12px}
+.tag,.star-item b,.project-number,.section-kicker{font-size:12px}
 .btn,.menu{font-size:14px}
 .btn,.menu a{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
 section[id],main{scroll-margin-top:125px}
 .contact-box{grid-template-columns:1fr}
 .compact-link .contact-value{color:var(--accent-light)}
-:focus-visible{outline:2px solid #63B3FF;outline-offset:5px}
+:focus-visible{outline:2px solid var(--accent-light);outline-offset:5px}
 .skip-link{position:fixed;top:8px;left:8px;z-index:100;background:#070707;padding:14px;transform:translateY(-160%)}
 .skip-link:focus{transform:translateY(0)}
 @media(max-width:1100px){.nav{gap:12px}.menu{gap:12px}.logo{font-size:14px}}
@@ -781,16 +778,66 @@ section[id],main{scroll-margin-top:125px}
  .photo-wrap img{min-height:0;object-position:50% 22%}
  .photo-label{font-size:11px}.star{grid-template-columns:1fr}
  section{padding:64px 0}.btn{display:flex}.project h3{line-height:1.2}
- .stack-grid{margin-top:28px}.tech{min-height:95px}
  .cert{grid-template-columns:1fr}.logo{font-size:13px;letter-spacing:.07em}
  h2{line-height:1.1}.contact-box{padding:22px}
 }
 @media(prefers-reduced-motion:reduce){
  html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}
- .photo-wrap:hover img,.project:hover,.tech:hover,.cert:hover,.btn:hover,.compact-link:hover{transform:none}
+ .photo-wrap:hover img,.project:hover,.cert:hover,.btn:hover,.compact-link:hover{transform:none}
  .photo-glow{display:none}
 }
 
+
+/* Tipografia monoespaçada e janela Technology Stack. */
+body{line-height:1.6}
+button,input,textarea,select{font-family:inherit}
+.hero h1{font-size:clamp(42px,5.3vw,76px);line-height:1.1;letter-spacing:-.045em}
+h2{font-size:clamp(34px,4.5vw,62px);line-height:1.12;overflow-wrap:break-word}
+.project h3{line-height:1.2;overflow-wrap:break-word}
+.nav{flex-wrap:wrap;padding-block:10px;gap:8px 24px}
+.menu{flex-wrap:wrap}
+.cmd-window{width:min(760px,100%);margin:36px auto 0;border:1px solid #343434;border-radius:9px;overflow:hidden;background:#080808;box-shadow:0 16px 40px rgba(0,0,0,.3)}
+.cmd-titlebar{display:flex;align-items:center;gap:10px;background:#202020;min-height:40px;padding-left:14px;color:#f2f2f2}
+.cmd-icon{font-size:14px;line-height:1;border:1px solid #8a8a8a;padding:2px}
+.cmd-title{font-size:14px;min-width:0}
+.cmd-controls{margin-left:auto;display:flex;align-self:stretch;flex-shrink:0}
+.cmd-controls span{display:grid;place-items:center;width:36px;font-size:16px;transition:background .2s ease}
+.cmd-controls span:hover{background:#343434}
+.cmd-controls .cmd-close:hover{background:#a32b32}
+.cmd-body{padding:22px 24px;font-size:14px;line-height:1.7}
+.cmd-system{color:#8a8a8a;overflow-wrap:anywhere}
+.cmd-command{margin:18px 0;overflow-wrap:anywhere}
+.cmd-prompt,.cmd-number,.cmd-cursor{color:var(--accent-light)}
+.cmd-stack{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,auto);grid-auto-flow:column;gap:6px 20px}
+.cmd-stack li{display:flex;gap:12px;min-width:0;color:#f2f2f2;transition:transform .2s ease,color .2s ease,text-shadow .2s ease}
+.cmd-number{flex-shrink:0}
+.cmd-stack li:hover{color:var(--accent-light);transform:translateX(3px);text-shadow:0 0 12px var(--accent-200)}
+.cmd-stack li:hover .cmd-number{color:var(--accent-light)}
+.cmd-last{margin-bottom:0}
+.cmd-cursor{animation:blink 1s steps(1) infinite}
+@media(max-width:950px){.hero h1{font-size:clamp(42px,8.5vw,76px)}}
+@media(max-width:700px){
+ .hero h1{font-size:clamp(36px,9.4vw,62px)}
+ h2{font-size:clamp(29px,7.4vw,48px)}
+ .terminal-tag{font-size:10px;max-width:100%;white-space:normal}
+ .cmd-window{width:100%;margin-top:28px}
+ .cmd-titlebar{gap:8px;padding-left:10px}
+ .cmd-title{font-size:12px}
+ .cmd-controls span{width:25px}
+ .cmd-body{padding:18px 14px}
+ .cmd-stack{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row;gap:7px}
+ .cmd-stack li{gap:10px}
+ .photo-label{flex-wrap:wrap;gap:4px;font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){.cmd-cursor{animation:none}.cmd-stack li:hover{transform:none}}
+
+/* Hierarquia e contraste da identidade Olive Drab. */
+.role{font-weight:600}
+.section-kicker,.project-number,.cmd-title,.cmd-number{font-weight:500}
+.menu a:hover{color:var(--accent-light)}
+.hero h1{font-weight:700}
+.btn.primary:hover{background:var(--accent-light);color:#070707}
+.star-item b{color:var(--accent-light)}
 </style>
 </head>
 
@@ -875,15 +922,27 @@ section[id],main{scroll-margin-top:125px}
         identidade, automação e sustentação de aplicações.
       </p>
 
-      <div class="stack-grid">
-        <div class="tech"><span class="n">01</span><strong>Microsoft Azure</strong></div>
-        <div class="tech"><span class="n">02</span><strong>Microsoft 365</strong></div>
-        <div class="tech"><span class="n">03</span><strong>Entra ID</strong></div>
-        <div class="tech"><span class="n">04</span><strong>Active Directory</strong></div>
-        <div class="tech"><span class="n">05</span><strong>PowerShell</strong></div>
-        <div class="tech"><span class="n">06</span><strong>Python / Flask</strong></div>
-        <div class="tech"><span class="n">07</span><strong>Windows Server / IIS</strong></div>
-        <div class="tech"><span class="n">08</span><strong>Linux / Nginx</strong></div>
+      <div class="cmd-window" role="region" aria-label="Technology Stack em uma janela visual de CMD">
+        <div class="cmd-titlebar">
+          <span class="cmd-icon" aria-hidden="true">&gt;_</span>
+          <span class="cmd-title">Technology Stack</span>
+          <span class="cmd-controls" aria-hidden="true"><span>—</span><span>□</span><span class="cmd-close">×</span></span>
+        </div>
+        <div class="cmd-body">
+          <div class="cmd-system">Microsoft Windows [Version 11]<br>(c) Winnie Gonçalves</div>
+          <p class="cmd-command"><span class="cmd-prompt">C:\Users\Winnie&gt;</span> stack --list</p>
+          <ol class="cmd-stack">
+            <li><span class="cmd-number">01</span><span>Microsoft Azure</span></li>
+            <li><span class="cmd-number">02</span><span>Microsoft 365</span></li>
+            <li><span class="cmd-number">03</span><span>Entra ID</span></li>
+            <li><span class="cmd-number">04</span><span>Active Directory</span></li>
+            <li><span class="cmd-number">05</span><span>PowerShell</span></li>
+            <li><span class="cmd-number">06</span><span>Python / Flask</span></li>
+            <li><span class="cmd-number">07</span><span>Windows Server / IIS</span></li>
+            <li><span class="cmd-number">08</span><span>Linux / Nginx</span></li>
+          </ol>
+          <p class="cmd-command cmd-last"><span class="cmd-prompt">C:\Users\Winnie&gt;</span> <span class="cmd-cursor" aria-hidden="true">_</span></p>
+        </div>
       </div>
     </div>
   </section>
